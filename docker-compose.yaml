@@ -1,0 +1,38 @@
+version: "3.7"
+services:
+  product-command-database:
+    container_name: product-command-database
+    networks:
+      - default
+    image: postgres:12.4
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+  product-command-database-test:
+    container_name: product-command-database-test
+    image: postgres:12.4
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5442:5432"
+  product-query-database:
+    container_name: product-query-database
+    networks:
+      - default
+    image: postgres:12.4
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5433:5432"
+  product-query-database-test:
+    container_name: product-query-database-test
+    image: postgres:12.4
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5443:5432"
