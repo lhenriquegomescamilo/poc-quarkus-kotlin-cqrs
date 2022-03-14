@@ -1,6 +1,7 @@
 plugins {
     kotlin("jvm") version "1.6.10"
     kotlin("plugin.allopen") version "1.6.10"
+    kotlin("kapt") version "1.6.10"
     id("io.quarkus")
 }
 
@@ -25,6 +26,10 @@ dependencies {
     implementation("io.quarkus:quarkus-resteasy")
     testImplementation("io.quarkus:quarkus-junit5")
     testImplementation("io.rest-assured:rest-assured")
+
+
+    implementation("org.mapstruct:mapstruct:1.5.0.Beta2")
+    kapt("org.mapstruct:mapstruct-processor:1.5.0.Beta2")
 }
 
 group = "com.camilo"
