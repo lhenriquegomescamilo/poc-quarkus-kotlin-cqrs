@@ -6,7 +6,7 @@ import io.restassured.RestAssured
 import io.restassured.http.ContentType
 import org.apache.http.HttpStatus
 import org.junit.jupiter.api.Test
-
+import org.hamcrest.Matchers.notNullValue
 @QuarkusTest
 internal class ProductResourceTest {
 
@@ -17,6 +17,7 @@ internal class ProductResourceTest {
             .contentType(ContentType.JSON)
             .`when`().post("/command/products")
             .then()
-            .statusCode(HttpStatus.SC_NO_CONTENT)
+            .statusCode(HttpStatus.SC_OK)
+            .body("productId", notNullValue())
     }
 }
